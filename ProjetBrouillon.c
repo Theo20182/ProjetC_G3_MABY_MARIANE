@@ -11,6 +11,6 @@ typedef struct
   int id; //on les identifie/différencie par des nombres
   enum  etat;
   int voisins[];
-} individu
+} individu;
   
 
