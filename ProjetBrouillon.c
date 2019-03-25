@@ -7,25 +7,22 @@
 #define lambda 0.7 //devient malade, donc 1-lambda prob rester sain
 #define gamma 0.2 //devient immunisé, donc 0.8 prob décès
 //on considère pour le moment que l'état "malade" dure qu'un jour t
-#define RAND_MAX  8 //nb de voisins max
 #define MAX 10 //taille de tab Population 10 x 10
 
 
 /*************** PROTOTYPES ***************/
-tab** convert_txt_to_list(void);
 int calcul_nb_arcs;
 void creation_graphe(graphe* G)
 void first_sick(void);
 
 
 /*************** STRUCTURES ***************/
-
 typedef struct _individu
 { 
-  int id; //on les identifie/différencie par des nombres
+  	int id; //on les identifie/différencie par des nombres
 	int love;
-  enum  etat;
-  _individu* voisin;
+ 	 enum  etat;
+ 	 _individu* voisin;
 } individu;
 
 
@@ -41,12 +38,6 @@ enum (SAIN, MALADE, IMMUNISE, MORT);
 
 
 /*************** FONCTIONS ***************/
-tab** convert_txt_to_list(void)
-{ //creer une fonction qui convert le fichier texte en tab** pour pouvoir utiliser les indices?
-
-}
-  
-
 int calcul_nb_arcs
 {
 	int nb_arcs;
