@@ -91,8 +91,8 @@ void creation_graphe(graphe* G)
 			p->individu = id_voisin;
 			p->etat		= 0;
 			p->love = affinite;
-			p->voisin			= G->successeurs[id];
-			G->successeurs[id]	= p;
+			p->voisin			= G->successeurs[id-1];
+			G->successeurs[id-1]	= p; //-1 car les id commencent a 1
 		}
 	}
   
