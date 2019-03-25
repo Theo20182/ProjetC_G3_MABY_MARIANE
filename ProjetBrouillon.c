@@ -88,7 +88,7 @@ void creation_graphe(graphe* G)
 			//v--;
 			//ajout d'un arc (u,v) : un maillon est ajoute en debut de la liste de successeurs de u
 			individu* p		= (individu*) malloc(sizeof(individu));
-			p->individu = id_voisin;
+			p->individu = id_voisin - 1;
 			p->etat		= 0;
 			p->love = affinite;
 			p->voisin			= G->successeurs[id-1];
