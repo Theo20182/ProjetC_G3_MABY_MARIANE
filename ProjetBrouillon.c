@@ -6,8 +6,8 @@
 /*************** DEFINE ***************/
 #define VOISIN_MAX  7
 #define LOVE_MAX    10
-#define lambda 0.7 //devient malade, donc 1-lambda prob rester sain
-#define gamma 0.2 //devient immunisé, donc 0.8 prob décès
+#define lambda 0.4 //si au dessus devient malade, donc 1-lambda prob rester sain
+#define gamma 0.8 //si au dessus, devient immunisé, sinon décès
 //on considère pour le moment que l'état "malade" dure qu'un jour t
 #define MAX 10 //taille de tab Population 10 x 10
 
@@ -24,7 +24,10 @@ typedef struct _individu
 { 
   	int id; //on les identifie/différencie par des nombres
 	int love;
- 	 enum  etat;
+ 	enum  etat;
+	int faiblesse = (srand(time())%100) / 100; //chance d'etre malade
+	int force = (srand(time())%100 ) / 100; //chance d'etre immunise
+	int dead = 1 - force; //si pas immunise, meurt
  	 _individu* voisin;
 } individu;
 
@@ -136,13 +139,27 @@ void creation_graphe(graphe* G)
 
 
 
-
-void first_sick(void)
-{
-  
-  
+/*void first_sick(int L) //nombre nodes
+{	//au hasard, faire en sorte que qqun soit malade
+	int i = 0, L;
+	i = srand(time())%(L-1) + 1;
+	if (Liste[i]->chance_malade >= lambda)
+	{
+		Liste[i]->etat = 1; //malade
+		i++
+	}
 }
+*/
 
+void first_sick(int L) //nb nodes
+{
+	printf("CHOOSE THE FIRST SICK : \n"); //Entrer l'id
+	printf("(enter id)\n");
+	scanf("%d", &id);
+	if (id > L)
+	{	printf("THIS ID DOES NOT EXIST");
+	}
+}
 
 
 int main(void) {
