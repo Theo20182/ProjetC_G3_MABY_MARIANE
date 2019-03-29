@@ -18,6 +18,7 @@ int calcul_nb_arcs;
 void creation_graphe(graphe* G)
 void first_sick(void);
 void step(Graphe* G);
+int Lenght_tab(int tab[]);
 
 
 /*************** STRUCTURES ***************/
@@ -26,9 +27,9 @@ typedef struct _individu
   	int id; //on les identifie/différencie par des nombres
 	int love;
  	enum  etat;
-	int faiblesse = (srand(time())%100) / 100; //chance d'etre malade
-	int force = (srand(time())%100 ) / 100; //chance d'etre immunise
-	int dead = 1 - force; //si pas immunise, meurt
+	float faiblesse = (srand(time())%100) / 100; //chance d'etre malade
+	float force = (srand(time())%100 ) / 100; //chance d'etre immunise
+	float dead = 1 - force; //si pas immunise, meurt
  	 _individu* voisin;
 } individu;
 
@@ -162,6 +163,10 @@ void first_sick(int L) //nb nodes
 	}
 }
 
+int Lenght_tab(int tab[])
+{	printf("Lenght : %lu", sizeof(tab) / sizeof(int));
+ 	return sizeof(tab) / sizeof(int);
+}
 
 
 void step(Graphe* G)
@@ -190,7 +195,9 @@ void step(Graphe* G)
 
 
 int main(void) {
-    int L = 10;
-    writeFile(L);
+	int L = 10;
+	writeFile(L);
+	Graphe G;
+	creation_graphe(&G);
 }
 
