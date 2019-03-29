@@ -154,7 +154,7 @@ void creation_graphe(graphe* G)
 void first_sick(int L) //nb nodes
 {
 	printf("CHOOSE THE FIRST SICK : \n"); //Entrer l'id
-	printf("(enter id)\n");
+	printf("(enter an id)\n");
 	scanf("%d", &id);
 	if (id > L)
 	{	printf("THIS ID DOES NOT EXIST");
