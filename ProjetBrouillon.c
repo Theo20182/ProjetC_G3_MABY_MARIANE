@@ -17,6 +17,7 @@ void writeFile(int L);
 int calcul_nb_arcs;
 void creation_graphe(graphe* G)
 void first_sick(void);
+void step(Graphe* G);
 
 
 /*************** STRUCTURES ***************/
@@ -159,6 +160,32 @@ void first_sick(int L) //nb nodes
 	if (id > L)
 	{	printf("THIS ID DOES NOT EXIST");
 	}
+}
+
+
+
+void step(Graphe* G)
+{	//for all indiv de la liste a rediger
+	{
+		if (L[i]->etat == 1) //si malade
+		{
+			if (force >= gamma) //si a des chances d'etre immu
+			{
+				L[i]->etat = 2 //devient immu
+				L[i]->faiblesse = 0; //ne peut pas retomber malade
+				L[i]->dead = 0; //ne peut pas en mourir
+			}
+			
+			else
+			{
+				L[i]->etat = 3; //si pas immu, meurt
+				L[i]->dead = 1;
+				L[i]->faiblesse = 0; //le sujet est mort, on ne le traite plus nn plus
+			}
+		}
+	 	propagation(L[i]);
+		i++;
+		}
 }
 
 
