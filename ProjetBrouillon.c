@@ -158,8 +158,8 @@ void first_sick(int L) //nb nodes
 	printf("CHOOSE THE FIRST SICK : \n"); //Entrer l'id
 	printf("(enter an id)\n");
 	scanf("%d", &id);
-	if (id > L)
-	{	printf("THIS ID DOES NOT EXIST");
+	if (id > L+1)
+	{	printf("THIS ID DOES NOT EXIST\n");
 	}
 }
 
@@ -171,6 +171,7 @@ int Lenght_tab(int tab[])
 
 void step(Graphe* G)
 {	//for all indiv de la liste a rediger
+	
 	{
 		if (L[i]->etat == 1) //si malade
 		{
