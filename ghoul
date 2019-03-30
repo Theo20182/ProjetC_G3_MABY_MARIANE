@@ -1,0 +1,36 @@
+#include "graph.h"
+#include "code1.c"
+
+void defineVampire(Graph* G, Node* s, int time) {
+    if((s->state == 2) && (time > 10)) {
+        s->state = 4;
+    }
+}
+       
+void defineGhoul(Graph* G, Node* s, int event) {
+    if((s->state == 3) && (event = 1)) {
+        s-state = 5;
+    }
+}
+       
+void ghoulAttack(Graph* G) {
+    //Les ghouls attaquent. 
+    //Si l'individu est sain alors il devient mort
+    //Si l'individu est malade, alors la ghoul ne l'attaque pas
+    //Si l'individu est mort alors il devient une ghoul
+    //Si l'individu est immunisé alors il devient vampire
+    //Si l'individu est un vampire alors la ghoul devient détruite
+    //Si l'individu est une ghoul, alors il ne se passe rien.
+    //L'attaque se fait à chaque step et dès qu'il y a une ghoul.
+}
+
+void vampireAttack(Graph* G){
+    //Les vampires attaquent
+    //Si l'individu est sain alors il devient vampire
+    //Si l'individu est malade, alors il devient détruit
+    //Si l'individu est mort alors il devient une ghoul
+    //Si l'individu est immunisé alors il devient vampire
+    //Si l'individu est un vampire alors ils se détruisent
+    //Si l'individu est une ghoul, alors il ne se passe rien.
+    //L'attaque se fait à chaque step et dès qu'il y a un vampire.
+}
