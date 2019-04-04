@@ -40,6 +40,24 @@ typedef struct
 	individu** liste_successeurs; 
 } graphe;
 
+
+typedef struct _voisin
+{
+    int id, indice;
+    struct _voisin* nxt;
+} voisin;
+
+typedef struct _ind
+{
+    int id;
+    voisin** list_voisin;
+} ind;
+
+typedef struct _list
+{
+    int nb_id;
+    ind** list_voisin;
+} list;
   
 enum (SAIN, MALADE, IMMUNISE, MORT, VAMPIRE, GHOUL, DETRUIT);
 
