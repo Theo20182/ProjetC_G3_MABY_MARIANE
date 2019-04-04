@@ -25,11 +25,10 @@ int Lenght_tab(int tab[]);
 typedef struct _individu
 { 
   	int id; //on les identifie/différencie par des nombres
-	int love;
+	int potentiel;
  	enum  etat;
-	float faiblesse = (srand(time())%100) / 100; //chance d'etre malade
-	float force = (srand(time())%100 ) / 100; //chance d'etre immunise
-	float dead = 1 - force; //si pas immunise, meurt
+	float force;
+	float dead;
  	 _individu* voisin;
 } individu;
 
@@ -38,11 +37,11 @@ typedef struct _individu
 typedef struct 
 {
 	int	nb_individus;
-	individu** successeurs; 
+	individu** liste_successeurs; 
 } graphe;
 
   
-enum (SAIN, MALADE, IMMUNISE, MORT);
+enum (SAIN, MALADE, IMMUNISE, MORT, VAMPIRE, GHOUL, DETRUIT);
 
 
 /*************** FONCTIONS ***************/
