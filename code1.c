@@ -1,5 +1,45 @@
 #include "graph.h"
 
+
+#define GRAPH_H
+#define INFINITY    1000000
+#define LAMBDA      0.3
+#define BETA        0.3
+#define GAMMA       0.3
+#define VOISIN_MAX  7
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+
+#include "list.h"
+#include "heap.h"
+
+enum etat {SAIN, MALADE, IMMUNISE, MORT, VAMPIRE, GHOUL, DETRUIT};
+
+typedef struct _node
+{
+	int id;
+    int potentiel;
+	enum etat state;
+	float force;//chance d'etre immunise
+	float dead; //si pas immunise, meurt
+	struct _node* successor;
+} Node;
+
+typedef struct
+{
+	int nb_nodes;
+	Node** list_successors;
+} Graph;
+
+
+/////////////////////////////////////////////////
+
+
 int calculTailleTab(Graph* G, int id) {
     int taille = 0;
     Node* temp = G->list_successors[id];
